@@ -3,7 +3,7 @@ import React from "react";
 
 function LargeCard({ img, title, description, btnTxt }) {
   return (
-    <section className="relative py-16 cursor-pointer">
+    <section className="relative py-16 cursor-pointer shadow-lg">
       <div className="relative h-96 min-w-[300px]">
         <Image
           src={img}
