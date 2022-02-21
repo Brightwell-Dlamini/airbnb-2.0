@@ -10,6 +10,7 @@ function MediumCard({ img, title }) {
           layout="fill"
           objectFit="contain"
           className="rounded-xl"
+          alt="card-img"
         />
       </div>
       <p className="text-2xl mt-3">{title}</p>

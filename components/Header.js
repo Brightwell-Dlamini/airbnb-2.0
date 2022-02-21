@@ -16,6 +16,7 @@ function Header() {
           layout="fill"
           objectFit="contain"
           objectPosition="left"
+          alt="logo"
         />
       </div>
       <div className="flex items-center justify-between md:border-2 rounded-full py-2  md:shadow-sm">
