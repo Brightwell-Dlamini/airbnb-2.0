@@ -10,12 +10,14 @@ import {
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { DateRangePicker } from "react-date-range";
+import { useRouter } from "next/dist/client/router";
 
 function Header() {
   const [searchInput, setSearchInput] = useState("");
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [noOfGuests, setNoOfGuests] = useState(1);
+  const router = useRouter();
 
   const handleSelect = (ranges) => {
     setStartDate(ranges.selection.startDate);
@@ -23,6 +25,17 @@ function Header() {
   };
   const resetInput = () => {
     setSearchInput("");
+  };
+  const search = () => {
+    router.push({
+      pathname: "/search",
+      query: {
+        location: searchInput,
+        startDate: startDate.toISOString(),
+        endDate: endDate.toISOString(),
+        noOfGuests,
+      },
+    });
   };
 
   const selectionRange = {
@@ -33,7 +46,10 @@ function Header() {
 
   return (
     <header className="sticky top-0 z-50 grid grid-cols-3 bg-white shadow-md py-5 px-5 md:px-10  items-center">
-      <div className="relative flex items-center h-10 cursor-pointer my-auto ">
+      <div
+        className="relative flex items-center h-10 cursor-pointer my-auto "
+        onClick={() => router.push("/")}
+      >
         <Image
           src="/logo.jpg"
           layout="fill"
@@ -87,7 +103,9 @@ function Header() {
             <button className="text-gray-400" onClick={resetInput}>
               Cancel
             </button>
-            <button className="text-red-500">Search</button>
+            <button className="text-red-500" onClick={search}>
+              Search
+            </button>
           </div>
         </div>
       )}
