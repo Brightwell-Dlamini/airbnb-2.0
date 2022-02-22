@@ -6,12 +6,12 @@ import React from "react";
 function InfoCard({ img, location, title, description, star, price, total }) {
   return (
     <div className="flex py-4 px-2 border-b pr-4 cursor-pointer hover:opacity-80 hover:shadow-lg transition duration-200 ease-out first:border-t">
-      <div className="relative h-24 w-40 md:h-52 md:w-80 flex-shrink-0 ">
+      <div className="relative h-24 w-40 md:h-52 md:w-80 flex-shrink-0 sm:h-52 sm:w-70 ">
         <Image
           src={img}
           layout="fill"
           objectFit="cover"
-          className="rounded-md hover:scale-105 "
+          className="rounded-lg"
         />
       </div>
       <div className="flex flex-col flex-grow pl-5">
