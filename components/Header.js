@@ -67,13 +67,13 @@ function Header({ placeholder }) {
           onChange={(e) => setSearchInput(e.target.value)}
         />
         <SearchIcon
-          className="hidden h-8 bg-red-400 text-white rounded-full p-2 cursor-pointer md:inline-flex mr-1 md:mx-2 "
+          className="hidden h-8 bg-red-400 text-white rounded-full p-2 cursor-pointer md:inline-flex mr-1 md:mx-2 animate-bounce"
           onClick={search}
         />
       </div>
       <div className="flex items-center space-x-4 justify-end text-gray-500">
         <p className="cursor-pointer hidden md:inline-flex">Become a host</p>
-        <GlobeAltIcon className="h-6 cursor-pointer " />
+        <GlobeAltIcon className="h-6 cursor-pointer animate-spin " />
         <div className="flex items-center justify-between md:border-2 rounded-full py-2  md:shadow-sm space-x-2 p-2">
           <MenuIcon className="h-6 cursor-pointer " />
           <UserCircleIcon className="h-6 cursor-pointer " />
