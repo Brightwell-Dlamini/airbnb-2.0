@@ -1,6 +1,6 @@
 import { getCenter } from "geolib";
 import React, { useState } from "react";
-import { Map as MapGl, Marker } from "react-map-gl";
+import { Map as MapGl, Marker, Popup } from "react-map-gl";
 
 function Map({ searchResults }) {
   const [selectedLocation, setSelectedLocation] = useState({});
@@ -38,10 +38,25 @@ function Map({ searchResults }) {
             <p
               className="cursor-pointer text-2xl animate-bounce"
               onClick={() => setSelectedLocation(result)}
+              aria-label="push-pin"
+              role="img"
             >
               📌
             </p>
           </Marker>
+          {/* pop up when clicking on a marker */}
+          {selectedLocation.long === result.long ? (
+            <Popup
+              onClose={() => setSelectedLocation({})}
+              closeOnClick={true}
+              latitude={result.lat}
+              longitude={result.long}
+            >
+              {result.title}
+            </Popup>
+          ) : (
+            false
+          )}
         </div>
       ))}
     </MapGl>
